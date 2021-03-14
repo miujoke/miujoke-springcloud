@@ -22,6 +22,7 @@ eureka:
   # Eureka 微服务地址名称修改 防止别人看到主机的ip
   instance:
     instance-id: payment8001
+    prefer-ip-address: true # 访问路径可以显示ip地址
 
 
 mybatis:
