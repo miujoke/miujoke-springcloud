@@ -19,7 +19,9 @@ eureka:
     service-url:
       #defaultZone: http://localhost:7001/eureka/    #设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址  ：：单机版
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  #集群版
-
+    # Eureka 微服务地址名称修改 防止别人看到主机的ip
+    instance:
+      instance-id: payment8002
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
