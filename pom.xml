@@ -11,6 +11,7 @@
     <!-- 模块管理-->
     <modules>
         <module>miujoke-provider-payment8001</module>
+        <module>miujoke-consumer-order80</module>
     </modules>
     <packaging>pom</packaging>
 

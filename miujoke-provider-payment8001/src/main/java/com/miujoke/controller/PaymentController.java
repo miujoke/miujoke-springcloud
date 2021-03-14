@@ -37,9 +37,9 @@ public class PaymentController {
     @GetMapping("/getPaymentById/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment result = paymentService.getPaymentById(id);
-        log.info("*****插入结果" + result);
+        log.info("*****插入结果" + result+"\t"+"哈哈哈");
         if (result != null) {
-            return new CommonResult(200, "查询成功", result);
+            return new CommonResult(200, "查询成功了222", result);
         } else {
             return new CommonResult(444, "没有对应记录", null);
         }
