@@ -12,6 +12,7 @@
     <modules>
         <module>miujoke-provider-payment8001</module>
         <module>miujoke-consumer-order80</module>
+        <module>miujoke-api-commons</module>
     </modules>
     <packaging>pom</packaging>
 
