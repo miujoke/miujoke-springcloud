@@ -12,6 +12,13 @@
     <artifactId>miujoke-consumer-order80</artifactId>
 
     <dependencies>
+        <!-- !引入自己定义的  miujoke-api-commons 通用包，可以使用Payment支付Entity-->
+        <dependency>
+            <groupId>com.miujoke</groupId>
+            <artifactId>miujoke-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
