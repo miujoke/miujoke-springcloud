@@ -15,6 +15,7 @@
         <module>miujoke-api-commons</module>
         <module>miujoke-eureka-server7001</module>
         <module>miujoke-eureka-server7002</module>
+        <module>miujoke-provider-payment8002</module>
     </modules>
     <packaging>pom</packaging>
 
