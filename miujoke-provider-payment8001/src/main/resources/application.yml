@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: cloud-payment-service  # 注册中心的名字
+    name: miujoke-payment-service  # 注册中心的名字
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  # 当前数据源操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver  # mysql驱动包
