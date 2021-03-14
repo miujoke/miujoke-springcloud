@@ -20,7 +20,10 @@ import javax.annotation.Resource;
 @Slf4j
 @RequestMapping("consumer")
 public class OrderController {
-    public static final  String PAYMENT_URL="http://localhost:8001";
+    // 调用支付模块的地址
+//    public static final  String PAYMENT_URL="http://localhost:8001"; //单机版的，
+    //微服务版，将地址改为注册中心注册的名字即可，但要在ApplicationContentConfig配置了中加上注解@LoadBalanced赋予RestTemplate负载均衡能力
+    public static final  String PAYMENT_URL="http://MIUJOKE-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
