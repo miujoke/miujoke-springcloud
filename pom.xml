@@ -16,6 +16,8 @@
         <module>miujoke-eureka-server7001</module>
         <module>miujoke-eureka-server7002</module>
         <module>miujoke-provider-payment8002</module>
+        <module>miujoke-provider-payment8004</module>
+        <module>miujoke-consumerzk-order80</module>
     </modules>
     <packaging>pom</packaging>
 
