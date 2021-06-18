@@ -16,14 +16,14 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderZKController {
 
-    public static final String INVOME_URL = "http://miujoke-provider-payment";
+    public static final String INVOKE_URL = "http://miujoke-provider-payment";
 
     @Resource
     private RestTemplate restTemplate;
 
     @GetMapping("/consumer/payment/zk")
     public String payment() {
-        String result = restTemplate.getForObject(INVOME_URL + "/payment/zk", String.class);
+        String result = restTemplate.getForObject(INVOKE_URL + "/payment/zk", String.class);
         return result;
     }
 }

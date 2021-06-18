@@ -15,9 +15,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @Configuration
 @EnableWebSecurity
+// 对全部方法开启验证
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true,jsr250Enabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    // 密码加密 在spring2.X中需要对密码加密才能通过
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 

@@ -13,7 +13,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @DateTime: 2021/6/17 16:09
  */
 @Configuration
-@EnableAuthorizationServer
+@EnableAuthorizationServer// 开启认证服务
 public class AuthConfig extends AuthorizationServerConfigurerAdapter {
 
     // 配置密码加密 springBoot2.X需要配置
