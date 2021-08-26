@@ -18,6 +18,7 @@
         <module>miujoke-provider-payment8002</module>
         <module>miujoke-provider-payment8004</module>
         <module>miujoke-consumerzk-order80</module>
+        <module>miujoke-mq-provider</module>
     </modules>
     <packaging>pom</packaging>
 
