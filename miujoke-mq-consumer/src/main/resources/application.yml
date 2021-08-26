@@ -1,0 +1,25 @@
+server:
+  port: 8022
+spring:
+  #\u7ED9\u9879\u76EE\u6765\u4E2A\u540D\u5B57
+  application:
+    name: mq-consumer
+  #\u914D\u7F6ErabbitMq \u670D\u52A1\u5668
+  rabbitmq:
+    host: 192.168.44.128
+    port: 5672
+    username: guest
+    password: admin
+    vhost: /
+    template:
+      receive-timeout: 30000
+      reply-timeout: 30000
+      retry:
+        enabled: false
+    listener:
+      direct:
+        retry:
+          enabled: false
+      default-requeue-rejected: true
+      retry:
+        enabled: false
