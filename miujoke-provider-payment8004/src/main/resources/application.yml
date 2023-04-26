@@ -6,4 +6,4 @@ spring:
     name: miujoke-provider-payment
   cloud:
     zookeeper:
-      connect-string: 192.168.0.128:2181
+      connect-string: 192.168.44.128:2181

@@ -48,7 +48,7 @@
 
         </dependency>
 
-        <!--添加zk 3.4,9版本-->
+        <!--添加zk 3.4.14版本-->
         <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>

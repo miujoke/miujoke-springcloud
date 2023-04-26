@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
  * @Author: miujoke
  * @DateTime: 2021/3/12 21:46
  */
+@Mapper
 public interface PaymentDao {
     int create(Payment payment);
 

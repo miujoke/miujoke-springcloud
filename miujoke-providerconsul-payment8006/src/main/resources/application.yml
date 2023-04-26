@@ -1,0 +1,18 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: miujoke-providerconsul-payment
+  cloud:
+    consul:
+      host: 192.168.44.128
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        health-check-critical-timeout: 1s
+        health-check-url: http://localhost:8006/actuator/health
+        # docker容器里面开启ip因为服务之间要进行心跳检测
+        prefer-ip-address: true
+        heartbeat:
+            enabled: true

@@ -14,7 +14,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 @MapperScan("com.miujoke.dao")
 @EnableEurekaClient  // 服务注册
-@EnableDiscoveryClient // 服务发现
+@EnableDiscoveryClient // 服务发现 用于查看当前注册中心有哪些实例
 public class PaymentMain8001 {
     public static void main(String[] args) {
         SpringApplication.run(PaymentMain8001.class, args);

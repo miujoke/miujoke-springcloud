@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @DateTime: 2021/3/18 20:28
  */
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableDiscoveryClient // 向zookeeper作为注册中心时注册服务
 public class PaymentMain8004 {
     public static void main(String[] args) {
         SpringApplication.run(PaymentMain8004.class,args);
