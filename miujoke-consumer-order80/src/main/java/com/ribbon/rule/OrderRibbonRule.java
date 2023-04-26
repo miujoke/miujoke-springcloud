@@ -15,7 +15,7 @@ public class OrderRibbonRule {
 
     @Bean
     public IRule getOrderRibbonRule(){
-        // 默认轮询，此处配置-随机
+        // 默认轮询，此处配置-随机 使用默认的就在启动类中加上@RibbonClient(name="MIUJOKE-PAYMENT-SERVICE", configuration = OrderRibbonRule.class)
         return new RandomRule();
     }
 }
