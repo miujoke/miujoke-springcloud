@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -54,4 +55,14 @@ public class PaymentController {
         return serverPort;
     }
 
+    @GetMapping("/timeOutTest")
+    public String timeOutTest(){
+        try{
+            // 睡眠3秒，openFeign一般默认等待1秒钟
+            TimeUnit.SECONDS.sleep(3);
+        }catch (Exception e){
+            log.info("超时了", e);
+        }
+        return serverPort;
+    }
 }

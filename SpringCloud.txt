@@ -1,0 +1,138 @@
+Cloud升级 ：
+服务注册    服务调用1     服务调用2     服务降级        服务网关    服务配置    服务总线
+(×)Eureka  Ribbon       (×)Feign      (×)Hystrix     (×)zuul     (×)config  (×)Bus
+Zookeeper  LoadBancer   OpenFeign     resilience4j   (!)zuul2     nacos      nacos
+Consul                                sentinel       gateway
+Nacos
+
+
+
+微服务架构和SpringCloud
+1、服务注册与发现：EUREKA
+2、服务负载与调用：RIBBON、FEIGN
+3、服务熔断降级：HYSTRIX
+4、服务网关：Zuul
+5、服务分布式配置：springCloud Config
+6、服务开发：SpringBoot
+
+版本选择：
+cloud：Hoxton.SR1
+boot:2.22.RELEASE
+cloud alibaba:2.1.0.RELEASE
+java:java8
+Maven:3.5及以上
+Mysql：5.7及以上
+
+
+服务注册中心：Eureka 和 Nacos（重点学习）
+服务调用1：Ribbon 和 LoadBalancer
+服务调用2：OpenFeign
+服务降级：resilience4j 和 alibaba Sentienl（国内）
+服务网关：gateway
+服务配置：nacos
+服务总线：nacos
+
+注册中心
+eureka（java）：
+客服端和服务端
+服务端集群就是相互注册、相互守望
+客服端集群就是将服务以逗号隔开注册到服务端即可
+eureka强一致性（AP）
+
+zookeeper（java）：
+粗分：分为临时节点和持久节点
+细分：带序号临时节点和带序号持久节点、持久节点和临时节点
+服务节点是临时节点还是持久节点：
+因为zookeeper是高可用（CP），所以服务出现问题就直接干掉，防止访问出现问题。
+而eureka是强一致（AP),宁愿让用户出现问题也不删除节点，保证数据一致性。
+
+后面ribbon替换restTemplate，业务模块间相互调用
+zookeeper集群就是以逗号隔开加上服务地址即可
+
+Consul（go）：
+作用：服务发现、健康检查、KV存储、多数据中心、可视化web界面
+Consul是高可用（CP
+
+三个注册中心异同点结论：
+
+组件名    语言  CAP 服务健康检查 对外暴露接口 springCloud集成
+eureka   java  AP   可配支持        HTTP           已集成
+
+consul   go    CP   支持         HTTP/DNS          已集成
+
+zookeeper java CP   支持           客服端           已集成
+
+CAP:
+C:Consistency(强一致性)
+A:Availability（可用性）
+P:Partition tolerance(分区容错性)
+CAP理论关注粒度是数据，而不是整体系统设计的策略
+
+服务调用一：
+Spring Cloud Ribbon 是基于Netflix Ribbon 实现的客服端 负载均衡工具
+主要功能：客服端的软件负载均衡算法和服务调用
+主要是负载均衡（load Balance）达到系统的HA（高可用）
+nginx是服务器负载均衡（服务器端）、ribbon是本地负载均衡（客户端）
+一句话：负载均衡+RestTemplate调用
+
+RestTemplate：
+restTemplate.getForEntity() result 对象
+restTemplate.getForObject() result json串
+
+ribbon自带7种算法（IRule接口7个实现类）：
+1、com.netflix.loadbalancer.RoundRobinRule轮询
+2、com.netflix.loadbalancer.RandomRule随机
+3、com.netflix.loadbalancer.RetryRule先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重试，获取可用的服务
+4、WeightedResponseTimeRule对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择
+5、BestAvailableRule会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务
+6、AvailabilityFilteringRule先过滤掉故障实例，再选择并发较小的实例
+7、ZoneAvoidanceRule默认规则，复合判断Server所在区域的性能和Server的可用性选择服务器
+
+轮询负载均衡算法：rest接口第几次请求%服务器集群总数=实际调用服务器位置下标，每次服务重启后rest接口技术从1开始
+ 总台数：2
+ List = 2 Instance
+当总请求数为1时： index = 1%2=1对应下标为1 list.get(index);
+当总请求数为2时： index = 2%2=0对应下标为0 list.get(index);
+当总请求数为3时： index = 3%2=1对应下标为1 list.get(index);
+...以此类推
+
+总台数：3
+List = 3 instance
+当总请求数为1时： index = 1%3=1对应下标为1 list.get(index);
+当总请求数为2时： index = 2%3=1对应下标为1 list.get(index);
+当总请求数为3时： index = 3%3=0对应下标为0 list.get(index);
+当总请求数为4时： index = 4%3=1对应下标为1 list.get(index);
+当总请求数为5时： index = 5%3=2对应下标为2 list.get(index);
+当总请求数为6时： index = 6%3=0对应下标为0 list.get(index);
+当总请求数为7时： index = 7%3=1对应下标为1 list.get(index);
+...以此类推
+
+CAS自旋锁：compareAndSet();
+
+服务调用二：
+openFeign：
+Feign是一个声明式的web服务客户端，让编写web服务客户端变得非常容易，只需创建一个接口并在接口添加注解即可
+Feign能干什么：
+Feign旨在使编写Java Http客户端变得更容易。
+前面在使用Ribbon+RestTemplate时，利用RestTemplate对http请求的封装处理，形成了一套模版化的调用方法。但是在实际开发中，由于对服务依赖的调用可能不止一处，往往一个接口会被多处调用，所以通常都会针对每个微服务自行封装一些客户端类来包装这些依赖服务的调用。所以，Feign在此基础上做了进一步封装，由他来帮助我们定义和实现依赖服务接口的定义。在Feign的实现下，我们只需创建一个接口并使用注解的方式来配置它(以前是Dao接口上面标注Mapper注解,现在是一个微服务接口上面标注一个
+Feign注解即可)，即可完成对服务提供方的接口绑定，简化了使用Spring cloud Ribbon时，自动封装服务调用客户端的开发量。
+
+Feign集成了Ribbon：
+利用Ribbon维护了Payment的服务列表信息，并且通过轮询实现了客户端的负载均衡。而与Ribbon不同的是，通过feign只需要定义服务绑定接口且以声明式的方法，优雅而简单的实现了服务调用
+
+Feign和openFeign区别
+
+openFeign日志级别：
+NONE:默认的，不显示任何日志;
+BASIC:仅记录请求方法、URL、响应状态码及执行时间;
+HEADERS:除了BASIC中定义的信息之外，还有请求和响应的头信息;
+FULL:除了HEADERS 中定义的信息之外，还有请求和响应的正文及元数据。
+
+Hystrix断路器：
+Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在分布式系统里，许多依赖不可避免的会调用失败，比如超时、异常等，Hystrix能够保证在一个依赖出问题的情况下，不会导致整体服务失败，避免级联故障，以提高分布式系统的弹性。
+"断路器”本身是一种开关装置，当某个服务单元发生故障之后，通过断路器的故障监控（类似榕断保险丝)，向调用方返回一个符合预期的、可处理的备选响应(FallBack)，而不是长时间的等待或者抛出调用方无法处理的异常，这样就保证了服务调用方的线程不会被长时间、不必要地占用，从而避免了故障在分布式系统中的蔓延，乃至雪崩。
+
+作用：
+服务降级、服务熔断、接近实时的监控等等
+
+

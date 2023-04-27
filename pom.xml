@@ -29,6 +29,7 @@
         <module>miujoke-providerconsul-payment8006</module>
         <module>miujoke-providerconsul-payment8005</module>
         <module>miujoke-consumerconsul-order</module>
+        <module>miujoke-consumer-openfeign-order80</module>
     </modules>
 
 
