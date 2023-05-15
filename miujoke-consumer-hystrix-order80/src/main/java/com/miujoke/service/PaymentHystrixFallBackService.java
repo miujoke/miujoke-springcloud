@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * @Author: miujoke
  * @DateTime: 2023/5/15 10:00
+ * PaymentHystrixService调用服务降级实现类，为了解耦
  */
 @Component
 public class PaymentHystrixFallBackService implements PaymentHystrixService{

@@ -35,7 +35,7 @@ public class HystrixOrderController {
     /*@HystrixCommand(fallbackMethod = "paymentInfo_ERRORHandler", commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     })*/
-    //@HystrixCommand
+    @HystrixCommand
     public String paymentInfo_ERROR(@PathVariable("id") Integer id){
         val result = paymentHystrixService.paymentInfo_ERROR(id);
         return result;
