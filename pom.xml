@@ -28,6 +28,7 @@
         <module>miujoke-consumer-openfeign-order80</module>
         <module>miujoke-provider-hystrix-payment8001</module>
         <module>miujoke-consumer-hystrix-order80</module>
+        <module>miujoke-hystrix-dashboard9001</module>
     </modules>
 
 
