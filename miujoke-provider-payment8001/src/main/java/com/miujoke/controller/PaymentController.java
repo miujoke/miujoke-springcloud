@@ -1,4 +1,4 @@
-package com.miujoke;
+package com.miujoke.controller;
 
 import com.miujoke.entities.CommonResult;
 import com.miujoke.entities.Payment;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @DateTime: 2021/3/12 22:01
  */
 @RestController
-@RequestMapping("payment")
+@RequestMapping("/payment")
 @Slf4j
 public class PaymentController {
 
@@ -57,7 +57,7 @@ public class PaymentController {
     }
 
     //获取当前服务列表实例
-    @GetMapping("/discovery")
+    @GetMapping("/eureka/discovery")
     // 服务发现测试接口
     public Object discovery(){
         // 获取服务列表实例
@@ -75,7 +75,7 @@ public class PaymentController {
     }
 
     // 获取当前轮询到的服务端口号
-    @GetMapping("/provider/lb")
+    @GetMapping("/eureka/provider/lb")
     public String getPaymentLB(){
         return serverPort;
     }

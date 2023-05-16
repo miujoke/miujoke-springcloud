@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableCircuitBreaker
+@EnableCircuitBreaker// 断路器引用
 public class ApplicationHystrix8001 {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationHystrix8001.class, args);
@@ -28,9 +28,9 @@ public class ApplicationHystrix8001 {
      * @return org.springframework.boot.web.servlet.ServletRegistrationBean
      */
     @Bean
-    public ServletRegistrationBean getServlet(){
+    public ServletRegistrationBean<HystrixMetricsStreamServlet> getServlet(){
         HystrixMetricsStreamServlet hystrixMetricsStreamServlet = new HystrixMetricsStreamServlet();
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(hystrixMetricsStreamServlet);
+        ServletRegistrationBean<HystrixMetricsStreamServlet> servletRegistrationBean = new ServletRegistrationBean<>(hystrixMetricsStreamServlet);
         servletRegistrationBean.setLoadOnStartup(1);
         servletRegistrationBean.addUrlMappings("/hystrix.stream");
         servletRegistrationBean.setName("HystrixMetricsStreamServlet");

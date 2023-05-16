@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * @DateTime: 2021/3/12 22:01
  */
 @RestController
-@RequestMapping("payment")
+@RequestMapping("/payment")
 @Slf4j
 public class PaymentController {
 
@@ -50,7 +50,7 @@ public class PaymentController {
     }
 
     // 获取当前轮询到的服务端口号
-    @GetMapping("/provider/lb")
+    @GetMapping("/eureka/provider/lb")
     public String getPaymentLB(){
         return serverPort;
     }

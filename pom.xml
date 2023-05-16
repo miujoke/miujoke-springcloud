@@ -22,13 +22,13 @@
         <module>miujoke-mq-provider</module>
         <module>miujoke-mq-consumer</module>
         <module>miujoke-common</module>
-        <module>miujoke-api-gateway</module>
         <module>miujoke-providerconsul-payment8006</module>
         <module>miujoke-consumerconsul-order</module>
         <module>miujoke-consumer-openfeign-order80</module>
         <module>miujoke-provider-hystrix-payment8001</module>
         <module>miujoke-consumer-hystrix-order80</module>
         <module>miujoke-hystrix-dashboard9001</module>
+        <module>miujoke-gateway-gateway9527</module>
     </modules>
 
 

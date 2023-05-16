@@ -4,7 +4,7 @@ import cn.hutool.core.date.DateUtil;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +14,8 @@ import java.util.concurrent.TimeUnit;
  * @Author: miujoke
  * @DateTime: 2023/5/9 16:28
  */
-public class FileUtils {
+public abstract class FileUtils {
+
 
     public static void main1(String[] args) throws IOException {
         File file = new File("D:\\IdeaProjects\\springboot\\miujoke-springcloud\\fileDir");
