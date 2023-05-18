@@ -15,10 +15,9 @@ public class GatewayConfig {
 
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder routeLocatorBuilder){
-        RouteLocator pathNewsRoute = routeLocatorBuilder.routes()
+        return routeLocatorBuilder.routes()
                 .route("path_eurekaTest_route",
                 p -> p.path("/eurekaTest/**").uri("localhost:8001")).build();
-        return pathNewsRoute;
     }
 
 }
