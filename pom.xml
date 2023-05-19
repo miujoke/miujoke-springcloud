@@ -29,7 +29,7 @@
         <module>miujoke-consumer-hystrix-order80</module>
         <module>miujoke-hystrix-dashboard9001</module>
         <module>miujoke-gateway-gateway9527</module>
-        <module>miujoke-config-server</module>
+        <module>miujoke-config-center3344</module>
     </modules>
 
 

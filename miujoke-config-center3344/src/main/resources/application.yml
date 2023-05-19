@@ -1,0 +1,26 @@
+server:
+  port: 3344
+
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          #uri: git@github.com:miujoke/springcloud-config.git
+          uri: https://github.com/miujoke/springcloud-config.git
+          #搜索目录
+          search-paths:
+            - springcloud-config
+          skip-ssl-validation: true # 跳过ssl校验
+      #读取分支
+      label: master
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#服务注册到eureka
