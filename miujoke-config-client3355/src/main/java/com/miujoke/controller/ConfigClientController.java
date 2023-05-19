@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2023/5/20 0:32
  */
 @RestController
-@RefreshScope // 动态刷新配置 需要请求一下 curl -X POST "http://localhost:3355/actuator/refresh"
+@RefreshScope // 动态刷新配置 需要请求一下 1修改配置，2执行 curl -X POST "http://localhost:3355/actuator/refresh"
 public class ConfigClientController {
     @Value("${config.info}")
     private String configInfo;
