@@ -18,9 +18,8 @@ spring:
       #读取分支
       label: master
 
-
+#服务注册到eureka
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
-#服务注册到eureka
