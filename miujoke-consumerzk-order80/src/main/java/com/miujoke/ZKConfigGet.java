@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @DateTime: 2023/4/25 19:00
  */
 public class ZKConfigGet {
-    private static String connectString = "192.168.44.128:2181";
+    private static String connectString = "192.168.1.6:2181";
     private static int sessionTimeout = 50 * 1000;
     /**
      * 连接Zookeeper服务器

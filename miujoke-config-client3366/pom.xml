@@ -6,7 +6,7 @@
         <artifactId>miujoke-springcloud</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>miujoke-config-client3355</artifactId>
+    <artifactId>miujoke-config-client3366</artifactId>
     <dependencies>
         <!--消息总线rabbitmq支持-->
         <dependency>

@@ -6,4 +6,4 @@ spring:
     name: miujoke-consumer-order
   cloud:
     zookeeper:
-      connect-string: 192.168.44.128:2181
+      connect-string: 192.168.1.6:2181

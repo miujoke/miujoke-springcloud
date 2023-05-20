@@ -29,6 +29,6 @@ public class AuthConfig extends AuthorizationServerConfigurerAdapter {
                 .secret(passwordEncoder().encode("secret"))// 客户端 secret
                 .authorizedGrantTypes("authorization_code")// 授权类型 ，授权码
                 .scopes("app")// 范围
-                .redirectUris("http://192.168.44.128/");// 重定向地址
+                .redirectUris("http://192.168.1.6/");// 重定向地址
     }
 }

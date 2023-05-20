@@ -31,6 +31,7 @@
         <module>miujoke-gateway-gateway9527</module>
         <module>miujoke-config-center3344</module>
         <module>miujoke-config-client3355</module>
+        <module>miujoke-config-client3366</module>
     </modules>
 
 

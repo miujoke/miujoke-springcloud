@@ -6,7 +6,7 @@ spring:
     name: mq-consumer
   #\u914D\u7F6ErabbitMq \u670D\u52A1\u5668
   rabbitmq:
-    host: 192.168.44.128
+    host: 192.168.1.6
     port: 5672
     username: guest
     password: admin

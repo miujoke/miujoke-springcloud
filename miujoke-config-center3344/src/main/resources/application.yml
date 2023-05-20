@@ -9,17 +9,31 @@ spring:
     config:
       server:
         git:
-          #uri: git@github.com:miujoke/springcloud-config.git
-          uri: https://github.com/miujoke/springcloud-config.git
+          # 总线刷新 curl -X POST "http://localhost:3344/actuator/bus-refresh"
+          #uri: git@github.com:miujoke/springcloud-config.git #ssh rsa加密github已经认为不安全，不能这样连接了
+          #uri: https://github.com/miujoke/springcloud-config.git #此处网络延迟我们用gitee
+          uri: https://gitee.com/miujoke/springcloud-config.git
           #搜索目录
           search-paths:
             - springcloud-config
           skip-ssl-validation: true # 跳过ssl校验
       #读取分支
       label: master
+  rabbitmq:
+    host: 192.168.1.6
+    port: 5672
+    username: admin
+    password: admin
 
 #服务注册到eureka
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+#rabbitmq相关配置，暴露bus刷新端点
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
