@@ -34,6 +34,7 @@
         <module>miujoke-config-client3366</module>
         <module>miujoke-stream-provider8801</module>
         <module>miujoke-stream-consumer8802</module>
+        <module>miujoke-stream-consumer8803</module>
     </modules>
 
 
