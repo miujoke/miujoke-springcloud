@@ -32,6 +32,8 @@
         <module>miujoke-config-center3344</module>
         <module>miujoke-config-client3355</module>
         <module>miujoke-config-client3366</module>
+        <module>miujoke-stream-provider8801</module>
+        <module>miujoke-stream-consumer8802</module>
     </modules>
 
 
