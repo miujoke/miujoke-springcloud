@@ -21,7 +21,7 @@ spring:
           destination: customExchange #自己定义要使用的exchange名称
           content-type: application/json #设置消息类型，此处为json，文本设置 text/plain
           binder: {defaultRabbit} # 设置要绑定的消息服务的具体设置
-          group: consumerA #分组名称
+          #group: consumerA #分组名称 命名分组自动持久化不命名分组默认不持久化
 
 
 #服务注册到eureka
