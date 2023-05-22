@@ -35,6 +35,9 @@
         <module>miujoke-stream-provider8801</module>
         <module>miujoke-stream-consumer8802</module>
         <module>miujoke-stream-consumer8803</module>
+        <module>miujoke-nacos-payment-provide9001</module>
+        <module>miujoke-nacos-payment-provider9002</module>
+        <module>miujoke-nacos-consumer83</module>
     </modules>
 
 
