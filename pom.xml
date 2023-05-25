@@ -38,6 +38,7 @@
         <module>miujoke-nacos-payment-provide9001</module>
         <module>miujoke-nacos-payment-provider9002</module>
         <module>miujoke-nacos-consumer83</module>
+        <module>miujoke-nacos-config-client3377</module>
     </modules>
 
 
