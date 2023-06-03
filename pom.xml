@@ -39,6 +39,7 @@
         <module>miujoke-nacos-payment-provider9002</module>
         <module>miujoke-nacos-consumer83</module>
         <module>miujoke-nacos-config-client3377</module>
+        <module>miujoke-sentinel-service8401</module>
     </modules>
 
 
@@ -149,7 +150,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <fork>true</fork>
                     <addResources>true</addResources>
                 </configuration>
             </plugin>

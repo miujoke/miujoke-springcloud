@@ -51,6 +51,18 @@
             <artifactId>hutool-core</artifactId>
             <version>5.4.0</version>
         </dependency>
+
+        <!--java动态代理包切面注解
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>-->
+
+        <!--springboot集成了上面的包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
     </dependencies>
 
 
